@@ -483,17 +483,22 @@ var jsonParse = (function () {
 			css.setAttribute('id', c + '-css');
 			css.setAttribute('rel', 'stylesheet');
 			css.setAttribute('type', 'text/css');
-			css.setAttribute('href', "//s3.amazonaws.com/subscription-cdn/0.2/widget.min.css");
+			css.setAttribute('href', "//embarkvet.com/js/sendgrid/widget.min.css");
 			document.getElementsByTagName('head')[0].appendChild(css);
 		}
 
 		var widgetInner = widget.innerHTML;
 		widget.innerHTML = '';
 		var form = document.createElement('form');
+    form.className = 'form-inline';
 
 		var submitText = widget.getAttribute("data-submit-text") || "Subscribe";
 		
-		form.innerHTML = '<div class="response"></div>' + widgetInner + '<label><span>Email</span><input type="email" name="email" placeholder="you@example.com"></label><input type="submit" value="' + submitText  + '">';
+		form.innerHTML = '<div class="response"></div>' + 
+      '<div class="form-group">' + widgetInner + '<label class="sr-only" for="email">Email</label>' +
+      '<input type="email" name="email" class="form-control transparent" placeholder="Your email here..."></label>' +
+      '</div>' +
+      '<button type="submit" class="btn btn-danger btn-fill">' + submitText  + '</button>';
 		widget.appendChild(form);
 
 		var messages = {
