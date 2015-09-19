@@ -497,7 +497,7 @@ var jsonParse = (function () {
 		form.innerHTML = '<div class="response"></div>' + 
       '<div class="form-group">' + widgetInner + '<label class="sr-only" for="email">Email</label>' +
       '<input type="email" name="email" class="form-control transparent" placeholder="Your email here..."></label>' +
-      '</div>' +
+      '</div> ' +
       '<button type="submit" class="btn btn-danger btn-fill">' + submitText  + '</button>';
 		widget.appendChild(form);
 
