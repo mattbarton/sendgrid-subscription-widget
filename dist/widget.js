@@ -571,7 +571,7 @@ var jsonParse = (function () {
 				responseEvent = CustomEvent(responseType, responseEventData);
 
 				if(checkDefault("messages", widget, d)){
-					responseDiv.className = responseDiv.className.replace("alert-danger", "").replace("alert-success", "") + " " + (responseType === 'success') ? 'alert-success' : 'alert-danger';
+					responseDiv.className = responseDiv.className.replace("alert-danger", "").replace("alert-success", "") + " " + ((responseType === 'success') ? 'alert-success' : 'alert-danger');
 					responseDiv.innerHTML = messages[responseEventData.message]
 						// replace html entities to prevent xss
 						.replace(/&/g, '&amp;')
