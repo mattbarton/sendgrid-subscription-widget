@@ -494,7 +494,7 @@ var jsonParse = (function () {
 
 		var submitText = widget.getAttribute("data-submit-text") || "Subscribe";
 		
-		form.innerHTML = '<div class="response"></div>' + 
+		form.innerHTML = '<div class="response alert"></div>' + 
       '<div class="form-group">' + widgetInner + '<label class="sr-only" for="email">Email</label>' +
       '<input type="email" name="email" class="form-control transparent" placeholder="Your email here..."></label>' +
       '</div> ' +
@@ -571,7 +571,7 @@ var jsonParse = (function () {
 				responseEvent = CustomEvent(responseType, responseEventData);
 
 				if(checkDefault("messages", widget, d)){
-					responseDiv.className = responseDiv.className.replace("error", "").replace("success", "") + " " + responseType;
+					responseDiv.className = responseDiv.className.replace("alert-danger", "").replace("alert-success", "") + " " + (responseType === 'success') ? 'alert-success' : 'alert-danger';
 					responseDiv.innerHTML = messages[responseEventData.message]
 						// replace html entities to prevent xss
 						.replace(/&/g, '&amp;')
